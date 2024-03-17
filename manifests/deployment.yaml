@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service1
+  labels:
+    app: service1
+  namespace: namespace-workflow-1710633644601
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service1
+  template:
+    metadata:
+      labels:
+        app: service1
+    spec:
+      containers:
+        - name: service1
+          image: acrworkflow1710633644601.azurecr.io/image-workflow-1710633644601:latest
+          ports:
+            - containerPort: 3000
